@@ -34,11 +34,18 @@ export const CardDeck = (props) => {
         setAttempts(attempts + 1);
       } else {
         setAttempts(attempts + 1);
+        reset(selection.card1, selection.card2);
       }
-      reset(selection.card1, selection.card2);
       setSelection({ card1: null, card2: null });
     }
-  }, [selection]);
+  }, [
+    selection.card1,
+    selection.card2,
+    setMatches,
+    matches,
+    setAttempts,
+    attempts,
+  ]);
 
   return (
     <div className="grid">
